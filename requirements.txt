@@ -6,5 +6,6 @@ pymongo
 certifi
 pymongo[srv]
 dill
+mlflow
 pyaml
 ##-e .
