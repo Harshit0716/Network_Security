@@ -83,5 +83,5 @@ async def predict_route(request:Request, file: UploadFile=File(...)):
         import traceback
         return PlainTextResponse(traceback.format_exc(), status_code=500)
 
-#if __name__ == "__main__":
-#   app_run(app, host="localhost", port=8050)
+if __name__ == "__main__":
+   app_run(app, host="localhost", port=8050)
