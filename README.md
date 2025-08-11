@@ -4,10 +4,10 @@
 ![Flask](https://img.shields.io/badge/Flask-2.3-black.svg?logo=flask)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-blue?logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub%20Actions-green?logo=githubactions)
+![AWS](https://img.shields.io/badge/Cloud-AWS-orange?logo=amazonaws)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen?logo=mongodb)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Enabled-orange?logo=tensorflow)
-![Data Pipeline](https://img.shields.io/badge/Data-Pipeline-blueviolet)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ---
 
@@ -18,21 +18,21 @@
 ![Flask API](https://img.shields.io/badge/Flask%20API-Deployment-lightgrey)
 ![Docker](https://img.shields.io/badge/Docker-Containerization-blue)
 ![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-green)
-![Cloud Ready](https://img.shields.io/badge/Deployment-Cloud%20Ready-lightblue)
+![AWS EC2](https://img.shields.io/badge/AWS-EC2%20Hosting-orange?logo=amazonec2)
+![AWS S3](https://img.shields.io/badge/AWS-S3%20Storage-gold?logo=amazons3)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Data%20Storage-brightgreen)
 
 ---
 
 🚀 **Project Overview**  
-This project is a complete **end-to-end Machine Learning pipeline** 🧠 designed to detect **phishing attacks** in network traffic, built from scratch to deployment. It showcases my skills in **data engineering**, **machine learning**, **API development**, **Dockerization**, and **CI/CD automation** — all in one neat package.  
+This project is a complete **end-to-end Machine Learning pipeline** 🧠 for detecting **phishing attacks** in network traffic, built from scratch to production deployment. It demonstrates my expertise in **data engineering**, **machine learning**, **API development**, **Dockerization**, **CI/CD automation**, and **AWS cloud deployment**.  
 
-I started with a **robust ETL pipeline** 📊 that:
-- **Extracts** raw data from a source
-- **Validates** it for quality & consistency
-- **Transforms** it into a clean, model-ready format  
+I began by designing a **modular ETL pipeline** 📊 to:
+- **Extract** raw network data
+- **Validate** it for quality & drift detection
+- **Transform** it into model-ready features  
 
-These stages are fully modular — meaning the system can easily adapt to new data sources or models in the future.  
-All intermediate files and logs are stored in the `Artifacts/` directory for **full reproducibility**.
+All intermediate datasets and reports are stored in the `Artifacts/` directory for **traceability** and reproducibility.
 
 ---
 
@@ -76,29 +76,39 @@ All intermediate files and logs are stored in the `Artifacts/` directory for **f
   ┌────────────────────────┐
   │ CI/CD (⚡ GitHub Actions)│
   │ - Test, Build, Deploy   │
-  └────────────────────────┘
+  └───────────┬─────────────┘
+              │
+              ▼
+  ┌──────────────────────────────┐
+  │ AWS Deployment ☁             │
+  │ - EC2: Host Docker Container  │
+  │ - S3: Store Static Assets     │
+  └──────────────────────────────┘
 
 ---
 
 💡 **How It Works – In One Flow**  
-The journey begins with raw phishing-related network data. Using my **ETL pipeline**, the data is ingested, validated for schema & drift issues, and transformed into a numerical format ready for machine learning models. This process is entirely automated so it can be rerun whenever new data arrives.  
+The journey starts with raw phishing-related network data. My automated **ETL pipeline** ingests the data, validates schema & drift, and transforms it for machine learning. The **model training** step applies preprocessing (saved as `preprocessing.pkl`) and trains algorithms to detect phishing patterns.  
 
-The **model training** step applies preprocessing (saved as `preprocessing.pkl`) and trains classification algorithms to detect phishing patterns. Evaluation ensures the model meets performance benchmarks before deployment.  
+The trained model is wrapped in a **Flask application** 🌐 that serves predictions via both a web interface and an API endpoint. This app is **Dockerized** 🐳 to ensure consistency across environments.  
 
-Once the model is ready, it’s integrated into a **Flask application**, which can serve predictions through a web interface or API endpoints. This app is **Dockerized** 🐳 so it can run in any environment without compatibility issues.  
-
-To ensure continuous integration and delivery, I set up a **GitHub Actions CI/CD pipeline** ⚡ that installs dependencies, runs tests, builds the Docker image, and can automatically deploy to cloud services such as AWS, Azure, or GCP.
+For deployment:  
+- The **Docker image** is hosted and run on **AWS EC2**, making the service publicly accessible.  
+- Static files and artifacts are stored in an **AWS S3 bucket**, ensuring fast and reliable content delivery.  
+- A **CI/CD pipeline** in **GitHub Actions** automates build, test, and deployment steps, so every update is pushed seamlessly to production.
 
 ---
 
 🗂 **Key Components**
 - `app.py` → Flask API entry point  
-- `main.py` → Triggers the full pipeline  
-- `push_data.py` → Loads data into MongoDB 🍃  
-- `.github/workflows/main.yml` → CI/CD automation steps  
-- `Dockerfile` → Container build instructions  
+- `main.py` → Full pipeline trigger  
+- `push_data.py` → MongoDB data loader 🍃  
+- `.github/workflows/main.yml` → CI/CD automation  
+- `Dockerfile` → Container build setup  
 - `requirements.txt` → Python dependencies  
-- `Artifacts/` → Stores processed datasets, models & reports  
+- `Artifacts/` → Data & model storage  
+- **AWS S3** → Static asset storage  
+- **AWS EC2** → Docker container hosting  
 
 ---
 
@@ -120,6 +130,7 @@ Steps:
 ✅ Install dependencies
 ✅ Run tests
 ✅ Build Docker image
-✅ Deploy to server/cloud
+✅ Push to AWS EC2
+✅ Sync static files to AWS S3
 
-In short, this project takes an idea from raw data ➡ automated ETL ➡ ML model ➡ Dockerized Flask app ➡ CI/CD deployment, proving my ability to build scalable, production-grade machine learning systems from scratch. 🚀
+In short, this project takes an idea from raw data ➡ automated ETL ➡ ML model ➡ Dockerized Flask app ➡ AWS deployment with CI/CD, proving my ability to build, automate, and deploy scalable production-grade ML systems in the cloud. 🚀
