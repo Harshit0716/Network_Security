@@ -61,16 +61,6 @@ For deployment:
 
 ---
 
-💻 **Run Locally**
-```bash
-git clone https://github.com/Harshit0716/Network_Security.git
-cd Network_Security
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
-pip install -r requirements.txt
-python app.py
-
 ⚙ CI/CD Workflow
 
 Trigger: Push to main branch
@@ -83,3 +73,4 @@ Steps:
 ✅ Sync static files to AWS S3
 
 In short, this project takes an idea from raw data ➡ automated ETL ➡ ML model ➡ Dockerized Flask app ➡ AWS deployment with CI/CD, proving my ability to build, automate, and deploy scalable production-grade ML systems in the cloud. 🚀
+
