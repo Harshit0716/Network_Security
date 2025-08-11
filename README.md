@@ -36,57 +36,6 @@ All intermediate datasets and reports are stored in the `Artifacts/` directory f
 
 ---
 
-🎯 **Architecture at a Glance**
-
-      ┌────────────────┐
-      │  Data Source   │
-      └───────┬────────┘
-              │
-              ▼
-  ┌────────────────────────┐
-  │   ETL Pipeline (📦)     │
-  │  - Ingestion            │
-  │  - Validation           │
-  │  - Transformation       │
-  └───────────┬─────────────┘
-              │
-              ▼
-  ┌────────────────────────┐
-  │ Model Training (🧠)     │
-  │ - Preprocessing (pkl)   │
-  │ - ML Algorithms         │
-  │ - Evaluation Metrics    │
-  └───────────┬─────────────┘
-              │
-              ▼
-  ┌────────────────────────┐
-  │ Flask API (🌐)          │
-  │ - Serve Predictions     │
-  │ - Web/API Interface     │
-  └───────────┬─────────────┘
-              │
-              ▼
-  ┌────────────────────────┐
-  │  Docker Container 🐳    │
-  │  - Consistent Env       │
-  │  - Easy Deploy          │
-  └───────────┬─────────────┘
-              │
-              ▼
-  ┌────────────────────────┐
-  │ CI/CD (⚡ GitHub Actions)│
-  │ - Test, Build, Deploy   │
-  └───────────┬─────────────┘
-              │
-              ▼
-  ┌──────────────────────────────┐
-  │ AWS Deployment ☁             │
-  │ - EC2: Host Docker Container  │
-  │ - S3: Store Static Assets     │
-  └──────────────────────────────┘
-
----
-
 💡 **How It Works – In One Flow**  
 The journey starts with raw phishing-related network data. My automated **ETL pipeline** ingests the data, validates schema & drift, and transforms it for machine learning. The **model training** step applies preprocessing (saved as `preprocessing.pkl`) and trains algorithms to detect phishing patterns.  
 
